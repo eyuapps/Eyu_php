@@ -119,6 +119,6 @@ while($x <= 10 ){
 //for loop
 
 for($y=0; $y <= 5; $y++){
-    echo 'the number is '.$y.'<br><br>';
+    echo 'the number is very '.$y.'<br><br>';
 }
 ?>
