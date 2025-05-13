@@ -63,8 +63,7 @@ const server = http.createServer(function (req, res) {
 })
 server.listen(5000, function(){
         console.log("It is listening on port 5000 http://localhost:5000")
-    })*/
-
+    })
 
     const express = require("express")
     const app = express()
@@ -94,3 +93,67 @@ server.listen(5000, function(){
         console.log(`listening 3000 http://localhost:${PORT}`)
     
     })
+*/
+
+//connection
+const mysql2 = require("mysql2")
+const conn = mysql2.createConnection({
+    host: "localhost",
+    user:"root",
+    password: "",
+    database: "schoolofcomputingdb",
+})
+conn.connect((err)=>{
+    if(err) {
+        console.error("error connecting to schoolofcomputing database", err)
+        return
+    }
+    console.log("connected to mysql database")
+})
+
+
+//sqlselect  
+/*
+app.get("/viewStudent", (req,res) => {
+    let sqltext = "SELECT * FROM student"
+    conn.query(sqltext, (err, result) => {
+        if(err) {
+            console.error("error fetching students", err)
+            res.status(500).send("error fetching students")
+            return
+        }
+        console.log(result)
+        res.json(result)
+    })
+})
+
+
+app.use(express.json())
+
+app.post("/addStudent", (req,res) => {
+    // => destruct the json  body from req
+    const {stuId, fName, mName, lName, sex , batch , dep} = req.body
+    const values = [stuId, fName, mName, lName, sex , batch , dep]
+    const sql = `INSERT INTO students (stuId, fName, mName, lName, sex , batch , dep)
+    VALUES (?, ?, ?, ?, ?, ?, ?)`
+
+    conn.query(sql, values, (err, result) => {
+        if(err) {
+            res.status(500).json({
+            success: false,
+            message: "error inserting student",
+            })
+        }
+        else {
+            res.status(201).json({
+                success: true,
+                message: "student added successfully",
+                
+        })
+
+    }
+})
+})
+
+*/
+    
